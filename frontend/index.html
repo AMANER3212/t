@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhishGuard AI | AI Phishing Detection System</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav>
+      <h2>PhishGuard AI</h2>
+      <a href="#detector">Analyze URL</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h1>AI-Powered Phishing Website Detection</h1>
+    <p>
+      Detect malicious, deceptive, and phishing websites using intelligent
+      URL feature analysis, trust scoring, and explainable security indicators.
+    </p>
+    <a href="#detector" class="cta">Start URL Analysis</a>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <h2>Why PhishGuard AI?</h2>
+    <p>
+      Phishing attacks exploit user trust through deceptive URLs.
+      PhishGuard AI evaluates websites using multiple analytical modules
+      inspired by real-world phishing detection techniques.
+    </p>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="section dark" id="features">
+    <h2>Core System Capabilities</h2>
+
+    <div class="grid">
+      <div class="card">
+        <strong>URL Feature Analysis</strong>
+        <p>
+          Analyzes URL length, HTTPS usage, IP-based links, subdomains,
+          keywords, special characters, and entropy.
+        </p>
+      </div>
+
+      <div class="card">
+        <strong>Risk Classification Engine</strong>
+        <p>
+          Uses a weighted scoring model to identify safe, suspicious,
+          and phishing-prone websites.
+        </p>
+      </div>
+
+      <div class="card">
+        <strong>Website Availability Check</strong>
+        <p>
+          Verifies whether the website is reachable using HTTP HEAD
+          and GET request analysis.
+        </p>
+      </div>
+
+      <div class="card">
+        <strong>Reputation Ledger</strong>
+        <p>
+          Stores analyzed URLs with trust score, hash, and timestamp
+          for transparency and traceability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORKFLOW ================= -->
+  <section class="section" id="workflow">
+    <h2>System Workflow</h2>
+    <ol class="workflow">
+      <li>User submits a website URL</li>
+      <li>URL format is validated</li>
+      <li>Security-related URL features are extracted</li>
+      <li>Risk score is calculated</li>
+      <li>Website availability is verified</li>
+      <li>Final trust score and verdict are generated</li>
+      <li>Result is stored in reputation ledger</li>
+    </ol>
+  </section>
+
+  <!-- ================= ANALYZER ================= -->
+  <section class="detector" id="detector">
+    <h2>Website Trust Analyzer</h2>
+    <p>
+      Enter a website URL below to evaluate its phishing risk and trustworthiness.
+    </p>
+
+    <input
+      type="text"
+      id="urlInput"
+      placeholder="https://example.com"
+    />
+
+    <button onclick="analyzeURL()">Analyze Website</button>
+
+    <!-- ================= RESULT ================= -->
+    <div id="result" hidden>
+
+      <!-- ===== SUMMARY ===== -->
+      <section id="summary">
+        <!-- Injected dynamically -->
+      </section>
+
+      <!-- ===== FEATURE ANALYSIS TABLE ===== -->
+      <section id="feature-analysis">
+        <h3>URL Feature Analysis</h3>
+
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Detected Value</th>
+              <th>Meaning / Risk Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTTPS Enabled</td>
+              <td id="f-https">—</td>
+              <td id="r-https">
+                HTTPS ensures encrypted communication. Absence increases phishing risk.
+              </td>
+            </tr>
+            <tr>
+              <td>IP-Based URL</td>
+              <td id="f-ip">—</td>
+              <td id="r-ip">
+                URLs using raw IP addresses are commonly associated with malicious sites.
+              </td>
+            </tr>
+            <tr>
+              <td>URL Length</td>
+              <td id="f-length">—</td>
+              <td id="r-length">
+                Very long URLs often hide malicious paths or misleading parameters.
+              </td>
+            </tr>
+            <tr>
+              <td>Subdomain Count</td>
+              <td id="f-subdomains">—</td>
+              <td id="r-subdomains">
+                Excessive subdomains (e.g. login.verify.secure.site.com) indicate spoofing.
+              </td>
+            </tr>
+            <tr>
+              <td>Suspicious Keywords</td>
+              <td id="f-keywords">—</td>
+              <td id="r-keywords">
+                Words like <em>login</em>, <em>verify</em>, <em>bank</em> are common in phishing URLs.
+              </td>
+            </tr>
+            <tr>
+              <td>URL Entropy</td>
+              <td id="f-entropy">—</td>
+              <td id="r-entropy">
+                High entropy indicates random or obfuscated strings used to evade detection.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <!-- ================= LEDGER ================= -->
+  <section id="ledger-section" hidden>
+    <h3>Reputation Ledger</h3>
+
+    <table id="ledger-table" class="feature-table">
+      <tr>
+        <th>URL</th>
+        <th>Trust Score</th>
+        <th>Hash</th>
+        <th>Timestamp</th>
+      </tr>
+    </table>
+
+    <p>
+      <strong>Website Status:</strong>
+      <span id="site-status">—</span>
+    </p>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    © 2026 PhishGuard AI · Final Year Project · AI & Cyber Security
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
